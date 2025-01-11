@@ -27,3 +27,22 @@ export const insertProductSchema = z.object({
   isFeatured: z.boolean(),
   banner: z.string().nullable(),
 });
+
+//for signing up a user
+export const signUpSchema = z.object({
+  name: z.string().min(3, { message: "Name must be at least 3 characters" }),
+  email: z.string().email({ message: "Email is invalid" }),
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters" })
+    .max(32, "Password must be less than 32 characters"),
+});
+
+//for signing in a user
+export const signInSchema = z.object({
+  email: z.string().email({ message: "Email is invalid" }),
+  password: z
+    .string()
+    .min(6, { message: "Password must be at least 6 characters" })
+    .max(32, "Password must be less than 32 characters"),
+});

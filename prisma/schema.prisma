@@ -22,6 +22,8 @@ model User {
   updatedAt     DateTime  @updatedAt
   account       Account[]
   session       Session[]
+
+  @@map("users")
 }
 
 model Account {
